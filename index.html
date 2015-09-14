@@ -2,31 +2,29 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Time dilation: tvillinge paradokset</title>
+        <title>Time dilation: the twin paradox</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Time dilation: tvillinge paradokset</h1>
-
-
+        <h1>Time dilation: the twin paradox</h1>
+        
         <div class="js-result" style="display:none;margin-bottom:10px;">
-            På jorden er der gået <span class="js-result-year"></span> år <br/>
+            On Earth <span class="js-result-year"></span> year(s) has passed.
         </div>
         <p>
-            Du skal på rejse i rummet, mens din tvilling bliver tilbage på Jorden.
+            You are going on a journey to outer space. In the meanwhile your twin stays on Earth.
         </p>
-        <b>Vælg dit transportmiddel: </b><br/>
+        <b>Choose transportation:</b><br/>
         <select name="velocity" class="js-velocity">
-            <option value="0.26055555555556">En Boeing 737 (0,26 km/s)</option>
-            <option value="7.5">Den internationale rumstation (7,5 km/s)</option>
+            <option value="0.26055555555556">Boeing 737 (0,26 km/s)</option>
+            <option value="7.5">The International Space Statio (ISS) (7,5 km/s)</option>
             <option value="16.38888888888889">New Horizons (16,4 km/s)</option>
-            <option value="37.5">Kometen 67 (37,5 km/s)</option>
-            <option value="239833.9664">0,8 x lysets hastighed</option>
-            <option value="299492.665542">CERNs partikelaccelerator (99,9% af lysets hastighed)</option>
+            <option value="37.5">Comet 67 (37,5 km/s)</option>
+            <option value="299492.665542">CERN's particle generator (99,9% of the speed of light)</option>
         </select>
         <br/>
-        <b>Hvor længe er du væk (år):</b><br/>
-        <input type="text" name="year" class="js-year" placeholder="Hvor længe er du væk (år)?"/>
+        <b>How many year are you staying in space:</b><br/>
+        <input type="text" name="year" class="js-year"/>
         <script>
             $(document).ready(function() {
 
