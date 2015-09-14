@@ -3,6 +3,11 @@ Simple calculator for calculating age differences (time dilation) between a pers
 
 Used for Illustreret Videnskab @ Bonnier Publications
 
+## Demo
+
+Available here:
+https://rawgit.com/skipperbent/time-dilation-calculator/master/index.html
+
 ## Ressources
 ### Based on formular
 
