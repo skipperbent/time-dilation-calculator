@@ -1,5 +1,5 @@
 # Time dilation calculator
-Simple calculator for calculating age differences (time dilation) between a person on earth versus a person moving in space, based on the "twin paradox".
+Simple calculator for calculating age differences (time dilation) between a person on Earth versus a person moving in space, based on the "twin paradox".
 
 Used for Illustreret Videnskab @ Bonnier Publications
 
