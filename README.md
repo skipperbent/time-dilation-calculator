@@ -4,7 +4,6 @@ Simple calculator for calculating age differences (time dilation) between a pers
 Used for Illustreret Videnskab @ Bonnier Publications
 
 ## Ressources
----
 ### Based on formular
 
 ![test](formula.gif)
