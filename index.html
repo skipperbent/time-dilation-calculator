@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Time dilation: tvillinge paradokset</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Time dilation: tvillinge paradokset</h1>
+
+
+        <div class="js-result" style="display:none;margin-bottom:10px;">
+            På jorden er der gået <span class="js-result-year"></span> år <br/>
+        </div>
+        <p>
+            Du skal på rejse i rummet, mens din tvilling bliver tilbage på Jorden.
+        </p>
+        <b>Vælg dit transportmiddel: </b><br/>
+        <select name="velocity" class="js-velocity">
+            <option value="0.26055555555556">En Boeing 737 (0,26 km/s)</option>
+            <option value="7.5">Den internationale rumstation (7,5 km/s)</option>
+            <option value="16.38888888888889">New Horizons (16,4 km/s)</option>
+            <option value="37.5">Kometen 67 (37,5 km/s)</option>
+            <option value="239833.9664">0,8 x lysets hastighed</option>
+            <option value="299492.665542">CERNs partikelaccelerator (99,9% af lysets hastighed)</option>
+        </select>
+        <br/>
+        <b>Hvor længe er du væk (år):</b><br/>
+        <input type="text" name="year" class="js-year" placeholder="Hvor længe er du væk (år)?"/>
+        <script>
+            $(document).ready(function() {
+
+                var calculateTimeDilation = function(velocity, year) {
+
+                    var c = 299792.458; // speed of light
+                    var time_i = year * 365 * 24 * 60 * 60; // years in seconds
+
+                    return (time_i / (  Math.sqrt( 1 - (Math.pow(velocity, 2) / Math.pow(c, 2)) ) )) / (365 * 24 * 60 * 60);
+                };
+
+                var showTimeDilation = function() {
+                    var velocity = parseFloat($('.js-velocity').val());
+                    var year = parseInt($('.js-year').val());
+
+                    if(velocity >= 0 && year > 0) {
+
+                        var result = calculateTimeDilation(velocity, year);
+
+                        $('.js-result-year').text( result );
+                        $('.js-result').show();
+                    } else {
+                        $('.js-result').hide();
+                    }
+                };
+
+                $('.js-year').live('keyup', function() {
+                    showTimeDilation();
+                });
+
+                $('.js-velocity').live('change', function() {
+                    showTimeDilation();
+                });
+
+            });
+        </script>
+    </body>
+</html>
