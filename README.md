@@ -8,10 +8,10 @@ Used for Illustreret Videnskab @ Bonnier Publications
 Available here:
 https://rawgit.com/skipperbent/time-dilation-calculator/master/index.html
 
-## Ressources
+## Resources
 ### Based on formular
 
-![test](formula.gif)
+![Time dilation formula](formula.gif)
 
 ### Time dilation explained
 http://www.emc2-explained.info/Time-Dilation/#.Vfcbs52qpHx
