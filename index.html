@@ -6,25 +6,33 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
     </head>
     <body>
-        <h1>Time dilation: the twin paradox</h1>
-        
-        <div class="js-result" style="display:none;margin-bottom:10px;">
-            On Earth <span class="js-result-year"></span> year(s) has passed.
+    <h1>Time dilation: the twin paradox</h1>
+        <div style="padding:0px 10px 10px 10px;border:1px solid #CCC;border-radius:6px;overflow:hidden;background-color:#FFF;">
+            <div style="margin:-10px;background-color:#E9E9E9;padding:8px 10px;margin-top:1px; margin-bottom:10px;font-weight:bold;border-bottom:1px solid #CCC;">
+                Tvillinge paradokset
+            </div>
+            <p>
+                Du skal på rejse i rummet, mens din tvilling bliver tilbage på Jorden.
+            </p>
+            <div>
+                <b>Vælg dit transportmiddel:</b>
+                <select name="velocity" class="js-velocity">
+                    <option value="0.26055555555556">En Boeing 737 (0,26 km/s)</option>
+                    <option value="7.5">Den Internationale Rumstation (ISS) (7,5 km/s)</option>
+                    <option value="16.38888888888889">New Horizons (16,4 km/s)</option>
+                    <option value="37.5">Kometen 67P/Churyumov–Gerasimenko (37,5 km/s)</option>
+                    <option value="299492.665542">CERNs partikelaccelerator (99,9% of the speed of light)</option>
+                </select>
+            </div>
+            <div style="margin-top: 10px">
+                <b>Hvor længe er du væk (år):</b>
+                <input type="text" name="year" class="js-year" autocomplete="off"/>
+            </div>
+            <div class="js-result" style="display:none;clear:both;margin-bottom:10px;padding-top:15px;">
+                På jorden er der gået <span class="js-result-time"></span>.
+            </div>
+            <div style="clear:both;"></div>
         </div>
-        <p>
-            You are going on a journey to outer space. In the meanwhile your twin stays on Earth.
-        </p>
-        <b>Choose transportation:</b><br/>
-        <select name="velocity" class="js-velocity">
-            <option value="0.26055555555556">Boeing 737 (0,26 km/s)</option>
-            <option value="7.5">The International Space Station (ISS) (7,5 km/s)</option>
-            <option value="16.38888888888889">New Horizons (16,4 km/s)</option>
-            <option value="37.5">Comet 67 (37,5 km/s)</option>
-            <option value="299492.665542">CERN's particle generator (99,9% of the speed of light)</option>
-        </select>
-        <br/>
-        <b>How many year are you staying in space:</b><br/>
-        <input type="text" name="year" class="js-year"/>
         <script>
             $(document).ready(function() {
 
@@ -38,16 +46,39 @@
 
                 var showTimeDilation = function() {
                     var velocity = parseFloat($('.js-velocity').val());
-                    var year = parseInt($('.js-year').val());
+                    var yearsInSpace = parseInt($('.js-year').val());
 
-                    if(velocity >= 0 && year > 0) {
+                    if(velocity >= 0 && yearsInSpace > 0) {
 
-                        var result = calculateTimeDilation(velocity, year);
+                        var yearsDiff = calculateTimeDilation(velocity, yearsInSpace) ;
 
-                        $('.js-result-year').text( result );
-                        $('.js-result').show();
+                        var yearsDecimalPoint = yearsDiff.toString().split('.')[1];
+
+                        var years = Math.floor(yearsDiff);
+                        days = Number('0.'+yearsDecimalPoint) * Number(365);
+                        daysDecimalPoint=days.toString().split('.')[1];
+
+                        months = Math.floor(Number(days) / Number(30.41666666666667));
+
+                        hours = Number('0.'+daysDecimalPoint) * Number(24);
+                        minutesDecimalPoint=hours.toString().split('.')[1];
+                        minutes = Number('0.'+minutesDecimalPoint) * Number(60);
+
+                        secondsDecimalPoint=minutes.toString().split('.')[1];
+                        seconds = Number('0.'+secondsDecimalPoint) * Number(60);
+
+                        days = Math.floor(days);
+                        hours = Math.floor(hours);
+                        minutes = Math.floor(minutes);
+                        seconds = Math.floor(seconds);
+
+                        $('.js-result-time').text(years + ' år, ' + months + ' måneder, ' + days + ' dage, ' + hours + ' timer, '+ minutes +' minutter og ' + seconds + ' sekunder');
+
+                        $('.js-result').fadeIn(200);
                     } else {
-                        $('.js-result').hide();
+                        $('.js-result').fadeOut(100, function() {
+                            $(this).hide();
+                        });
                     }
                 };
 
