@@ -6,30 +6,29 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
     </head>
     <body>
-    <h1>Time dilation: the twin paradox</h1>
         <div style="padding:0px 10px 10px 10px;border:1px solid #CCC;border-radius:6px;overflow:hidden;background-color:#FFF;">
             <div style="margin:-10px;background-color:#E9E9E9;padding:8px 10px;margin-top:1px; margin-bottom:10px;font-weight:bold;border-bottom:1px solid #CCC;">
-                Tvillinge paradokset
+                The twin paradox
             </div>
             <p>
-                Du skal på rejse i rummet, mens din tvilling bliver tilbage på Jorden.
+                You are going on a journey to outer space. Your twin stays on the Earth.
             </p>
             <div>
-                <b>Vælg dit transportmiddel:</b>
+                <b>Choose your transportation:</b>
                 <select name="velocity" class="js-velocity">
-                    <option value="0.26055555555556">En Boeing 737 (0,26 km/s)</option>
-                    <option value="7.5">Den Internationale Rumstation (ISS) (7,5 km/s)</option>
+                    <option value="0.26055555555556">A Boeing 737 (0,26 km/s)</option>
+                    <option value="7.5">The International Space Station (ISS) (7,5 km/s)</option>
                     <option value="16.38888888888889">New Horizons (16,4 km/s)</option>
-                    <option value="37.5">Kometen 67P/Churyumov–Gerasimenko (37,5 km/s)</option>
-                    <option value="299492.665542">CERNs partikelaccelerator (99,9% of the speed of light)</option>
+                    <option value="37.5">The Comet 67P/Churyumov–Gerasimenko (37,5 km/s)</option>
+                    <option value="299492.665542">CERNs particle generator (99,9% of the speed of light)</option>
                 </select>
             </div>
             <div style="margin-top: 10px">
-                <b>Hvor længe er du væk (år):</b>
+                <b>How many years are you gone:</b>
                 <input type="text" name="year" class="js-year" autocomplete="off"/>
             </div>
             <div class="js-result" style="display:none;clear:both;margin-bottom:10px;padding-top:15px;">
-                På jorden er der gået <span class="js-result-time"></span>.
+                On Earth <span class="js-result-time"></span> has passed.
             </div>
             <div style="clear:both;"></div>
         </div>
@@ -72,7 +71,7 @@
                         minutes = Math.floor(minutes);
                         seconds = Math.floor(seconds);
 
-                        $('.js-result-time').text(years + ' år, ' + months + ' måneder, ' + days + ' dage, ' + hours + ' timer, '+ minutes +' minutter og ' + seconds + ' sekunder');
+                        $('.js-result-time').text(years + ' year(s), ' + months + ' month(s), ' + days + ' day(s), ' + hours + ' hour(s), '+ minutes +' minute(s) og ' + seconds + ' second(s)');
 
                         $('.js-result').fadeIn(200);
                     } else {
